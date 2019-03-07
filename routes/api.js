@@ -6,6 +6,7 @@ var authController = require('../controllers/authController.js');
 var authMiddleware = require('../middleware/authMiddleware.js');
 
 var translatorTextController = require('../controllers/translatorTextController');
+var visionController = require('../controllers/computerVisionController');
 
 router.get('/', function (req, res) {
 	res.status(200).send({ message : "API server online" });
@@ -41,5 +42,7 @@ router.route('/translate/:text')
 router.route('/languages')
 	.get(translatorTextController.languages)
 
+router.route('/vision')
+	.post(visionController.vision)
 
 module.exports = router;
