@@ -5,6 +5,8 @@ var userController = require('../controllers/userController.js');
 var authController = require('../controllers/authController.js');
 var authMiddleware = require('../middleware/authMiddleware.js');
 
+var translatorTextController = require('../controllers/translatorTextController');
+
 router.get('/', function (req, res) {
 	res.status(200).send({ message : "API server online" });
 });
@@ -32,6 +34,12 @@ router.route('/reset')
 
 router.route('/changePassword')
 	.post(authMiddleware.isAuthenticated, authController.changePassword)
+
+router.route('/translate/:text')
+	.get(translatorTextController.translate)
+
+router.route('/languages')
+	.get(translatorTextController.languages)
 
 
 module.exports = router;

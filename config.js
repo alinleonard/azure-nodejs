@@ -10,5 +10,8 @@ module.exports = {
         service: 'gmail',
         auth_user: '*',
         auth_pass: '*'
+    },
+    azure: {
+        AzureTranslatorTextKey: process.env.AZURE_TRANSLATOR_TEXT_KEY
     }
 }
